@@ -8,8 +8,10 @@ const initApiRouter = (app) => {
     res.send("helloooooo");
   });
 
-  router.post("/upload", uploadfileController.postFileUploadImage)
-
+  router.post("/upload-vongquay", uploadfileController.postFileUploadImage_vongquay);
+  router.post("/upload-banner", uploadfileController.postFileUploadImage_banner);
+  router.post("/upload-anhnen", uploadfileController.postFileUploadImage_anhnen);
+  router.post("/upload-footer", uploadfileController.postFileUploadImage_footer)
 
   return app.use("/api/v1", router);
 };

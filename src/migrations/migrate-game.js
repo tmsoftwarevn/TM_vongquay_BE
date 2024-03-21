@@ -2,7 +2,7 @@
 /** @type {import('sequelize-cli').Migration} */
 module.exports = {
   async up(queryInterface, Sequelize) {
-    await queryInterface.createTable("admin", {
+    await queryInterface.createTable("game", {
       id: {
         type: Sequelize.INTEGER(11),
         primaryKey: true,
@@ -12,8 +12,8 @@ module.exports = {
       name: {
         type: Sequelize.STRING,
       },
-      password: {
-        type: Sequelize.STRING,
+      id_Khachhang:{
+        type: Sequelize.INTEGER,
       },
       createdAt: {
         allowNull: false,
@@ -22,11 +22,10 @@ module.exports = {
       updatedAt: {
         allowNull: false,
         type: Sequelize.DATE,
-        // defaultValue: Sequelize.fn("now"),
       },
     });
   },
   async down(queryInterface, Sequelize) {
-    await queryInterface.dropTable("admin");
+    await queryInterface.dropTable("game");
   },
 };

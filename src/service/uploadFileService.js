@@ -1,8 +1,8 @@
 const path = require("path");
 const fs = require("fs");
 
-const uploadSingleFile = async (fileObject) => {
-  let uploadPath = path.resolve(__dirname, "../public/images/vong quay");
+const uploadSingleFile_vongquay = async (fileObject) => {
+  let uploadPath = path.resolve(__dirname, "../public/images/vongquay");
 
   let extName = path.extname(fileObject.name);
   let baseName = path.basename(fileObject.name, extName);
@@ -25,6 +25,75 @@ const uploadSingleFile = async (fileObject) => {
   }
 };
 
+const uploadSingleFile_banner = async (fileObject) => {
+  let uploadPath = path.resolve(__dirname, "../public/images/banner");
+
+  let extName = path.extname(fileObject.name);
+  let baseName = path.basename(fileObject.name, extName);
+  // custom name image
+  let finalName = `${baseName}-${Date.now()}${extName}`;
+  let finalPath = `${uploadPath}/${finalName}`;
+  try {
+    await fileObject.mv(finalPath);
+    return {
+      data: {
+        fileUploaded: finalName,
+      },
+    };
+  } catch (err) {
+    console.log(err);
+    return {
+      message: "upload failed",
+      error: JSON.stringify(err),
+    };
+  }
+};
+const uploadSingleFile_anhnen = async (fileObject) => {
+  let uploadPath = path.resolve(__dirname, "../public/images/anh_nen");
+
+  let extName = path.extname(fileObject.name);
+  let baseName = path.basename(fileObject.name, extName);
+  // custom name image
+  let finalName = `${baseName}-${Date.now()}${extName}`;
+  let finalPath = `${uploadPath}/${finalName}`;
+  try {
+    await fileObject.mv(finalPath);
+    return {
+      data: {
+        fileUploaded: finalName,
+      },
+    };
+  } catch (err) {
+    console.log(err);
+    return {
+      message: "upload failed",
+      error: JSON.stringify(err),
+    };
+  }
+};
+const uploadSingleFile_footer = async (fileObject) => {
+  let uploadPath = path.resolve(__dirname, "../public/images/footer");
+
+  let extName = path.extname(fileObject.name);
+  let baseName = path.basename(fileObject.name, extName);
+  // custom name image
+  let finalName = `${baseName}-${Date.now()}${extName}`;
+  let finalPath = `${uploadPath}/${finalName}`;
+  try {
+    await fileObject.mv(finalPath);
+    return {
+      data: {
+        fileUploaded: finalName,
+      },
+    };
+  } catch (err) {
+    console.log(err);
+    return {
+      message: "upload failed",
+      error: JSON.stringify(err),
+    };
+  }
+};
 
 const deleteImage = async (fileImg) => {
  
@@ -39,7 +108,9 @@ const deleteImage = async (fileImg) => {
   }
 };
 export default {
-  uploadSingleFile,
+  uploadSingleFile_vongquay,
   deleteImage,
-  
+  uploadSingleFile_anhnen,
+  uploadSingleFile_banner,
+  uploadSingleFile_footer
 };
