@@ -15,6 +15,7 @@ module.exports = (sequelize, DataTypes) => {
     {
       name: DataTypes.STRING,
       tile: DataTypes.INTEGER,
+      stt: DataTypes.INTEGER,
       id_game: DataTypes.INTEGER,
     },
     {

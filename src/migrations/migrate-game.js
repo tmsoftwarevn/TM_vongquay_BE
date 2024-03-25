@@ -12,6 +12,12 @@ module.exports = {
       name: {
         type: Sequelize.STRING,
       },
+      slug:{
+        type: Sequelize.STRING,
+      },
+      so_manh:{
+        type: Sequelize.INTEGER,
+      },
       id_Khachhang:{
         type: Sequelize.INTEGER,
       },

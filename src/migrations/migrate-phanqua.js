@@ -15,6 +15,9 @@ module.exports = {
       tile: {
         type: Sequelize.INTEGER,
       },
+      stt:{
+        type: Sequelize.INTEGER,
+      },
       id_game: {
         type: Sequelize.INTEGER,
       },

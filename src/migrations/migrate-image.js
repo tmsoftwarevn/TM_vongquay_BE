@@ -27,9 +27,7 @@ module.exports = {
       footer: {
         type: Sequelize.STRING,
       },
-      so_manh: {
-        type: Sequelize.INTEGER,
-      },
+      
       id_game:{
         type: Sequelize.INTEGER,
       }, 

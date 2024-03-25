@@ -18,8 +18,11 @@ module.exports = {
       qua: {
         type: Sequelize.STRING,
       },
-      khu_vuc: {
-        type: Sequelize.STRING,
+      active: {
+        type: Sequelize.INTEGER
+      },
+      id_game: {
+        type: Sequelize.INTEGER
       },
       createdAt: {
         allowNull: false,

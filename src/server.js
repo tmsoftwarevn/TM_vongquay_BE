@@ -21,7 +21,7 @@ configViewEngine(app);
 
 app.use(
   cors({
-    origin: process.env.PORT_URL,
+    origin: [process.env.PORT_URL,"http://localhost:3001"],
     methods: "GET,POST,PUT,DELETE",
     credentials: true,
   })

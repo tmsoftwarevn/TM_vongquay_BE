@@ -19,7 +19,6 @@ module.exports = (sequelize, DataTypes) => {
       banner: DataTypes.STRING,
       anh_nen: DataTypes.STRING,
       footer: DataTypes.STRING,
-      so_manh: DataTypes.INTEGER,
       id_game: DataTypes.INTEGER
     },
     {
