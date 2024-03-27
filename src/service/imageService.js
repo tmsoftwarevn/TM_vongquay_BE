@@ -12,7 +12,7 @@ const putInfoImage = async (data, id) => {
         footer: data.footer,
       },
       {
-        where: { id: id },
+        where: { id_game: id },   // id_game của mỗi image là duy nhất, ko có bị trùng được
       }
     );
     if (u[0] > 0)

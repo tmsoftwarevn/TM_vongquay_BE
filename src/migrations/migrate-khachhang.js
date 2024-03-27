@@ -9,6 +9,9 @@ module.exports = {
         autoIncrement: true,
         allowNull: false,
       },
+      name:{
+        type: Sequelize.STRING,
+      },
       email: {
         type: Sequelize.STRING,
       },

@@ -6,6 +6,8 @@ import imageController from "../controllers/imageController";
 import phanquaController from "../controllers/phanquaController";
 import gameController from "../controllers/gameController";
 import baocaoController from "../controllers/baocaoController";
+import khachhangController from "../controllers/khachhangController";
+import CheckController from "../controllers/CheckController";
 
 const initApiRouter = (app) => {
   router.get("/", (req, res) => {
@@ -30,7 +32,7 @@ const initApiRouter = (app) => {
     uploadfileController.postFileUploadImage_footer
   );
 
-  // ảnh
+  // image
   router.put("/image/:id_game", imageController.putInfoImage);
   router.get("/image/:id_game", imageController.getInfoImage);
   router.post("/image", imageController.post_image);
@@ -40,15 +42,37 @@ const initApiRouter = (app) => {
   router.post("/phan-qua", phanquaController.post_phanqua);
   router.delete("/phan-qua/:id", phanquaController.delete_phanqua);
   router.get("/phan-qua/:id_game", phanquaController.get_all_phanqua);
+
   //game
-  router.post("/game", gameController.post_game);
+  // check_game để xem game tồn tại chưa
+  router.post("/game", gameController.check_game, gameController.post_game);
   router.put("/game/:id_game", gameController.put_game);
+  router.get("/game/:id", gameController.get_info_game);
 
   //bao cao
   router.post("/bao-cao", baocaoController.post_info_gamer);
   router.get("/bao-cao/:id_game", baocaoController.get_all_baocao);
-  router.delete("/bao-cao/:id", baocaoController.delete_baocao_byid)
-  router.put("/bao-cao/:id", baocaoController.update_active_lienhe)
+  router.delete("/bao-cao/:id", baocaoController.delete_baocao_byid);
+  router.put("/bao-cao/:id", baocaoController.update_active_lienhe);
+
+  //khach hang
+
+  router.post(
+    "/customer",
+    khachhangController.check_email_exist,
+    khachhangController.post_customer
+  );
+
+  router.put("/customer/:id", khachhangController.put_customer);
+  router.delete("/customer/:id", khachhangController.delete_customer);
+  router.get("/customer", khachhangController.get_all_customer);
+
+  router.post("/customer-login", khachhangController.postLogin);
+  router.get("/info-customer/:id", khachhangController.get_info_customer);
+
+  // check game - customer (id, id_khachhang có giống k)
+  router.post("/check-game-customer", CheckController.check_game_customer)
+
 
 
   return app.use("/api/v1", router);

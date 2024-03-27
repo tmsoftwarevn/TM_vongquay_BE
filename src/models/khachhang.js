@@ -13,6 +13,7 @@ module.exports = (sequelize, DataTypes) => {
   }
   khach_hang.init(
     {
+      name: DataTypes.STRING,
       email: DataTypes.STRING,
       phone: DataTypes.STRING,
       password: DataTypes.STRING,

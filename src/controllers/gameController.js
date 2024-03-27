@@ -37,4 +37,48 @@ const put_game = async (req, res) => {
     });
   }
 };
-export default { post_game , put_game};
+
+const check_game = async (req, res, next) => {
+  try {
+    let check = await gameService.check_game(req.body);
+    if (check && check.DT) {
+      return res.status(200).json({
+        EC: -2,
+        message: "Game đã được tạo",
+        data: check.DT,
+      });
+    } else {
+      return next();
+    }
+  } catch (error) {
+    console.log(err);
+    return res.status(500).json({
+      EC: -1,
+      message: "Err somethings",
+    });
+  }
+};
+
+const get_info_game = async (req, res) => {
+  try {
+    let data = await gameService.get_info_game(req.params.id);
+    if (data) {
+      return res.status(200).json({
+        data: data,
+        EC: 1,
+      });
+    } else {
+      return res.status(400).json({
+        message: "Có lỗi",
+        EC: -1,
+      });
+    }
+  } catch (error) {
+    return res.status(500).json({
+      EC: -1,
+      message: "Wrong something",
+    });
+  }
+};
+
+export default { post_game, put_game, check_game, get_info_game };
