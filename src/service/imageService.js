@@ -55,4 +55,5 @@ const post_image = async (data) => {
   }
 };
 
+
 export default { putInfoImage, getInfoImage, post_image };

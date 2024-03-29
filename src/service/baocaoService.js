@@ -1,6 +1,7 @@
 const db = require("../models");
 const post_info_gamer = async (data) => {
   try {
+    if(!data.id_game) return null;
     let c = await db.bao_cao.create({
       name: data.name,
       phone: data.phone,

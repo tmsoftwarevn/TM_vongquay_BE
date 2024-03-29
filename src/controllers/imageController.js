@@ -60,4 +60,6 @@ const post_image = async (req, res) => {
   }
 };
 
+
+
 export default { putInfoImage, getInfoImage, post_image };

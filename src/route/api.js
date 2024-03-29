@@ -8,6 +8,7 @@ import gameController from "../controllers/gameController";
 import baocaoController from "../controllers/baocaoController";
 import khachhangController from "../controllers/khachhangController";
 import CheckController from "../controllers/CheckController";
+import accountController from "../controllers/accountController";
 
 const initApiRouter = (app) => {
   router.get("/", (req, res) => {
@@ -72,6 +73,10 @@ const initApiRouter = (app) => {
 
   // check game - customer (id, id_khachhang có giống k)
   router.post("/check-game-customer", CheckController.check_game_customer)
+
+  // check-pass và update pass
+  router.post("/check-password", accountController.check_password);
+  router.post("/update-password", accountController.put_password);
 
 
 
